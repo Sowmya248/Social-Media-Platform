@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Explore</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        SocialMedia
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('home') }}">Home</a>
+
+        <a href="{{ url_for('explore') }}">Explore</a>
+
+        <a href="{{ url_for('messages') }}">Messages</a>
+
+        <a href="{{ url_for('profile') }}">Profile</a>
+
+        <button id="logoutButton"
+                class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page-container">
+
+    <h1>🔍 Explore</h1>
+
+    <p>
+        Discover posts shared by users.
+    </p>
+
+
+    <div class="explore-grid">
+
+
+        {% for post in posts %}
+
+
+        <article class="explore-card">
+
+            <div class="profile-circle">
+                {{ post["username"][0] | upper }}
+            </div>
+
+
+            <h3>
+                {{ post["username"] }}
+            </h3>
+
+
+            <p>
+                {{ post["content"] }}
+            </p>
+
+
+            <small>
+                {{ post["created_at"] }}
+            </small>
+
+        </article>
+
+
+        {% else %}
+
+
+        <p>
+            No posts available.
+        </p>
+
+
+        {% endfor %}
+
+
+    </div>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        SocialMedia
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('home') }}">Home</a>
+
+        <a href="{{ url_for('explore') }}">Explore</a>
+
+        <a href="{{ url_for('messages') }}">Messages</a>
+
+        <a href="{{ url_for('profile') }}">Profile</a>
+
+        <button id="logoutButton"
+                class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+<main class="profile-page">
+
+
+    <div class="profile-header">
+
+        <div class="profile-avatar"
+             id="profileAvatar">
+            U
+        </div>
+
+
+        <div>
+
+            <h1 id="profileUsername">
+                User
+            </h1>
+
+            <p>
+                SocialMedia User
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="profile-stats">
+
+        <div>
+            <strong>0</strong>
+            <span>Posts</span>
+        </div>
+
+
+        <div>
+            <strong>0</strong>
+            <span>Followers</span>
+        </div>
+
+
+        <div>
+            <strong>0</strong>
+            <span>Following</span>
+        </div>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <h2>About</h2>
+
+        <p>
+            Welcome to my SocialMedia profile.
+        </p>
+
+    </div>
+
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>

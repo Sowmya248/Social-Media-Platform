@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        Admin Dashboard
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('home') }}">
+            User Website
+        </a>
+
+        <button id="adminLogoutButton"
+                class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="admin-dashboard">
+
+
+    <h1>
+        Platform Administration
+    </h1>
+
+
+    <div class="dashboard-cards">
+
+
+        <div class="dashboard-card">
+
+            <h2>👥</h2>
+
+            <h3>Total Users</h3>
+
+            <strong>
+                {{ user_count }}
+            </strong>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <h2>📝</h2>
+
+            <h3>Total Posts</h3>
+
+            <strong>
+                {{ post_count }}
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- USERS -->
+
+    <section class="admin-section">
+
+        <h2>Registered Users</h2>
+
+
+        {% if users %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Username</th>
+
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for user in users %}
+
+                    <tr>
+
+                        <td>
+                            {{ user["id"] }}
+                        </td>
+
+                        <td>
+                            {{ user["username"] }}
+                        </td>
+
+                        <td>
+                            {{ user["email"] }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <p>No users registered.</p>
+
+        {% endif %}
+
+    </section>
+
+
+
+    <!-- POSTS -->
+
+    <section class="admin-section">
+
+        <h2>Manage Posts</h2>
+
+
+        {% if posts %}
+
+
+        <div class="admin-post-list">
+
+
+            {% for post in posts %}
+
+
+            <div class="admin-post">
+
+                <div>
+
+                    <strong>
+                        {{ post["username"] }}
+                    </strong>
+
+                    <p>
+                        {{ post["content"] }}
+                    </p>
+
+                    <small>
+                        {{ post["created_at"] }}
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="delete-post-button"
+                    data-post-id="{{ post['id'] }}">
+
+                    🗑️ Remove
+
+                </button>
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+        {% else %}
+
+        <p>No posts available.</p>
+
+        {% endif %}
+
+
+    </section>
+
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>

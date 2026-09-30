@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - SocialMedia</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body class="auth-body">
+
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>SocialMedia</h1>
+
+        <h2>Create Account</h2>
+
+        <p>Join our social platform</p>
+
+
+        <form id="signupForm">
+
+
+            <input
+                type="text"
+                id="signupUsername"
+                placeholder="Username"
+                required>
+
+
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Email"
+                required>
+
+
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Password"
+                required>
+
+
+            <input
+                type="password"
+                id="signupConfirmPassword"
+                placeholder="Confirm Password"
+                required>
+
+
+            <button type="submit">
+                Sign Up
+            </button>
+
+
+        </form>
+
+
+        <p id="signupMessage"></p>
+
+
+        <p>
+            Already have an account?
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+        </p>
+
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>
